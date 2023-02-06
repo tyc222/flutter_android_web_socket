@@ -11,7 +11,18 @@ class MethodChannelAndroidWebSocket extends AndroidWebSocketPlatform {
 
   @override
   Future<String?> getPlatformVersion() async {
-    final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    final version =
+        await methodChannel.invokeMethod<String>('getPlatformVersion');
     return version;
+  }
+
+  @override
+  Future<String?> getWebsocketResponse(String payload) async {
+    final payloadToPass = <String, String>{
+      'payload': payload,
+    };
+    final response = await methodChannel.invokeMethod<String>(
+        'getWebsocketResponse', payloadToPass);
+    return response;
   }
 }

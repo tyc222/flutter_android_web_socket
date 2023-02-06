@@ -26,4 +26,9 @@ abstract class AndroidWebSocketPlatform extends PlatformInterface {
   Future<String?> getPlatformVersion() {
     throw UnimplementedError('platformVersion() has not been implemented.');
   }
+
+  Future<String?> getWebsocketResponse(String payload) {
+    throw UnimplementedError(
+        'getWebsocketResponse() has not been implemented.');
+  }
 }
