@@ -31,6 +31,7 @@ class AndroidWebSocketPlugin : FlutterPlugin, MethodCallHandler {
       val socketListener = object : WebSocketClient.SocketListener {
         override fun onMessage(message: String) {
           Log.e("socketCheck onMessage", message)
+          result.success(message)
         }
       }
 
