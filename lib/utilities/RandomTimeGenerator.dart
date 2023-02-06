@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 class RandomTimeGenerator {
@@ -10,9 +11,29 @@ class RandomTimeGenerator {
 
   RandomTimeGenerator._internal();
 
-  int generateRandomTime(int min, int max) {
+  int _generateRandomTime(int min, int max) {
     Random random = Random();
     int r = min + random.nextInt(max - min);
     return r;
+  }
+
+  bool _start = false;
+  Timer _scheduleTimeout([int milliseconds = 10000]) =>
+      Timer(Duration(milliseconds: milliseconds), _handleTimeout);
+
+  void _handleTimeout() {
+    if (_start) {
+      print('hi');
+      _scheduleTimeout(_generateRandomTime(1, 2) * 1000);
+    }
+  }
+
+  void executeTaskOnTime() {
+    _start = true;
+    _scheduleTimeout(); // 5 seconds.
+  }
+
+  void stopTaskOnTime() {
+    _start = false;
   }
 }
