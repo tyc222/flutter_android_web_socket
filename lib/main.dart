@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_android_web_socket/providers/firstScreenProvider.dart';
 import 'package:flutter_android_web_socket/screens/firstScreen.dart';
+import 'package:flutter_android_web_socket/screens/secondScreen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const FirstScreen(),
+        '/secondScreen': (context) => const SecondScreen(),
       },
     );
   }
