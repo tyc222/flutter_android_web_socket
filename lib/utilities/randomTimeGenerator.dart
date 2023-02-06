@@ -14,7 +14,7 @@ class RandomTimeGenerator {
 
   RandomTimeGenerator._internal();
 
-  int _generateRandomTime(int min, int max) {
+  int generateRandomTime(int min, int max) {
     Random random = Random();
     int r = min + random.nextInt(max - min);
     return r;
@@ -26,7 +26,7 @@ class RandomTimeGenerator {
 
   Future<void> _handleTimeout() async {
     if (_start) {
-      _scheduleTimeout(_generateRandomTime(10, 20) * 1000);
+      _scheduleTimeout(generateRandomTime(10, 20) * 1000);
       final response = await ColourInfoApi().fetchColourInfo();
       TempHolder().addColourInfo(response);
     }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_android_web_socket/models/ColourInfo_model.dart';
 import 'package:flutter_android_web_socket/tempHolder.dart';
-import 'package:flutter_android_web_socket/utilities/RandomTimeGenerator.dart';
+import 'package:flutter_android_web_socket/utilities/randomTimeGenerator.dart';
 
 class FirstScreen extends StatelessWidget {
   const FirstScreen({super.key});
