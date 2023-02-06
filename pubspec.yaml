@@ -34,6 +34,8 @@ dependencies:
 
   http: ^0.13.3
   provider: ^6.0.1
+  android_web_socket:
+    path: packages/AndroidWebSocket
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
