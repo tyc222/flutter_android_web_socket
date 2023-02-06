@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter_android_web_socket/apis/colourInfo_api.dart';
+import 'package:flutter_android_web_socket/tempHolder.dart';
+
 class RandomTimeGenerator {
   static final RandomTimeGenerator _randomTimeGenerator =
       RandomTimeGenerator._internal();
@@ -18,19 +21,20 @@ class RandomTimeGenerator {
   }
 
   bool _start = false;
-  Timer _scheduleTimeout([int milliseconds = 10000]) =>
+  Future<Timer> _scheduleTimeout([int milliseconds = 10000]) async =>
       Timer(Duration(milliseconds: milliseconds), _handleTimeout);
 
-  void _handleTimeout() {
+  Future<void> _handleTimeout() async {
     if (_start) {
-      print('hi');
-      _scheduleTimeout(_generateRandomTime(1, 2) * 1000);
+      _scheduleTimeout(_generateRandomTime(10, 20) * 1000);
+      final response = await ColourInfoApi().fetchColourInfo();
+      TempHolder().addColourInfo(response);
     }
   }
 
-  void executeTaskOnTime() {
+  Future<void> executeTaskOnTime() async {
     _start = true;
-    _scheduleTimeout(); // 5 seconds.
+    await _scheduleTimeout(); // 5 seconds.
   }
 
   void stopTaskOnTime() {
