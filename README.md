@@ -17,3 +17,4 @@ What's Incomplete:
 4. More decoupling into individual functions
 5. More memory optimisation
 6. Focus more on using a MVVM pattern
+7. Remove template code and comments
